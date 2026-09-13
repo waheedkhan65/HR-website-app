@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const emp = document.querySelector("#employees");
     const size = document.querySelector("#companySize");
-    const rec = document.querySelector("#recruitment");
-    const comp = document.querySelector("#compliance");
+    const rec = document.querySelector("#recruitmentSupport");
+    const comp = document.querySelector("#complianceSupport");
     const out = document.querySelector("#estimate");
 
     function calc() {
