@@ -1,4 +1,5 @@
 :root {
+    /* Global brand and theme tokens used throughout the site */
     --purple: #7c3aed;
     --bg: #fff;
     --surface: #fff;
@@ -10,6 +11,7 @@
 }
 
 [data-theme=dark] {
+    /* Dark-mode overrides for the same shared tokens */
     --bg: #070707;
     --surface: #111;
     --soft: #17121f;
@@ -27,6 +29,7 @@ html {
     scroll-behavior: smooth
 }
 
+/* Offset anchor jumps so fixed header does not cover section titles */
 section[id],
 div[id="blog"],
 div[id="templates"] {
@@ -47,6 +50,7 @@ a {
     text-decoration: none
 }
 
+/* Shared fixed header styling */
 .navbar {
     background: color-mix(in srgb, var(--bg) 90%, transparent) !important;
     backdrop-filter: blur(14px);
@@ -111,6 +115,7 @@ a {
     color: #fff
 }
 
+/* Theme toggle button in the header */
 .theme {
     width: 40px;
     height: 40px;
@@ -129,6 +134,7 @@ a {
     position: relative
 }
 
+/* Soft panel behind the homepage hero content */
 .hero:before {
     content: "";
     position: absolute;
@@ -169,6 +175,7 @@ a {
     max-width: 600px
 }
 
+/* Decorative hero shell used only on the homepage */
 .visual {
     min-height: 430px;
     border: 1px solid var(--border);
@@ -197,6 +204,7 @@ a {
     width: 170px
 }
 
+/* Shared section spacing and card styles */
 .section {
     padding: 90px 0
 }
@@ -238,6 +246,7 @@ a {
     margin-bottom: 20px
 }
 
+/* Large page-hero blocks for service and pricing sections */
 .page-hero {
     padding: 100px 0 65px;
     background: linear-gradient(180deg, var(--soft), transparent)
@@ -253,6 +262,7 @@ a {
     transform: translateY(-8px)
 }
 
+/* Form and contact panel layout */
 .estimator,
 .contact {
     background: var(--surface);
@@ -278,6 +288,7 @@ a {
     height: 100%
 }
 
+/* Inputs and FAQ accordion colors follow the active theme */
 .form-control,
 .form-select {
     background: var(--surface) !important;
@@ -328,6 +339,7 @@ a {
     color: var(--muted)
 }
 
+/* Pricing, resources, and CTA blocks */
 .result {
     padding: 24px;
     border-radius: 20px;
@@ -357,6 +369,7 @@ a {
     box-shadow: 0 30px 80px var(--shadow)
 }
 
+/* Footer link group styling */
 footer {
     border-top: 1px solid var(--border);
     padding: 60px 0 30px
@@ -383,6 +396,7 @@ footer {
     transform: none
 }
 
+/* Responsive hero and spacing adjustments */
 @media(max-width:991px) {
     .hero .container {
         padding: 0 22px
