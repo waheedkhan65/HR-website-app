@@ -28,6 +28,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
 
+    const activateServiceCard = target => {
+        if (!target || !target.classList.contains('service-box')) return;
+
+        document.querySelectorAll('.service-box').forEach(box => box.classList.remove('active'));
+        target.classList.remove('active');
+        void target.offsetWidth;
+        target.classList.add('active');
+    };
+
+    const syncServiceHighlight = () => {
+        const targetId = window.location.hash;
+        const matchingBox = targetId ? document.querySelector(`.service-box${targetId}`) : null;
+        if (matchingBox) activateServiceCard(matchingBox);
+    };
+
+    document.querySelectorAll('.service-box').forEach(card => {
+        card.addEventListener('click', () => {
+            activateServiceCard(card);
+        });
+    });
+
+    document.querySelectorAll('.dropdown-item[href^="#service-"]').forEach(link => {
+        link.addEventListener('click', event => {
+            const targetSelector = link.getAttribute('href');
+            const target = document.querySelector(targetSelector);
+
+            if (!target) return;
+
+            event.preventDefault();
+
+            const headerHeight = document.querySelector('.navbar')?.offsetHeight || 80;
+            const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+
+            window.scrollTo({ top, behavior: 'smooth' });
+            history.replaceState(null, '', targetSelector);
+            activateServiceCard(target);
+        });
+    });
+
+    window.addEventListener('hashchange', syncServiceHighlight);
+    syncServiceHighlight();
+
     const emp = document.querySelector("#employees");
     const size = document.querySelector("#companySize");
     const rec = document.querySelector("#recruitmentSupport");
